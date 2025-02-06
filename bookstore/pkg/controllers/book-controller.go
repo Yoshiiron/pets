@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"encoding/json"
 	"net/http"
 	"strconv"
 
@@ -13,8 +12,9 @@ var NewBook models.Book
 
 func GetBook(c *gin.Context) {
 	newBooks := models.GetAllBooks()
-	res, _ := json.Marshal(newBooks)
-	c.JSON(http.StatusOK, res)
+	c.JSON(http.StatusOK, gin.H{
+		"result": newBooks,
+	})
 }
 
 func GetBookById(c *gin.Context) {
