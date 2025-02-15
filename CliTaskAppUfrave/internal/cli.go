@@ -11,6 +11,7 @@ import (
 
 func Cli() {
 	cmd := &cli.Command{
+		EnableShellCompletion: true,
 		Commands: []*cli.Command{
 			{
 				Name:  "add",
